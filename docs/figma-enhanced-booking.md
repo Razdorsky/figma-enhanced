@@ -335,3 +335,13 @@ movement's three cards (a massage, headphones on a cushion in the Dome, a group 
 Each now shows a horse photograph from the property: Groundwork a woman standing with a white horse in the river
 (`ea5d3eb36b2031e294f0`), Trail ride a saddled horse on a forest trail (`bb39a8510ce86bcd65fd`), Short ride two riders on
 their horses in the shallow river (`55161e7692315fc7eac4`). Their copies for the screen's size are in `public/enhanced/photos/` (800, 1200, 1600), and their descriptions are written for this edition.
+
+## The footer's last row (owner, 2026-11-11)
+
+The symbol at the foot of the footer is the PR edition's size, 64px (it was 56px, 48px on phones), and the two lines are
+set apart as in the Figma edition: "© The Vessyl 2026 • La Fortuna, Costa Rica" to the left and "Privacy • Terms &
+Conditions" to the right, level with the symbol in the middle (`styles/system.css`, `.footer-bottom` as a three-column
+grid). Below 768px, where the three do not fit in a row, the symbol and the two lines stand one under another in the
+middle, as before. The space from the last links to the row and from the row to the bottom stays equal (90/92px at 1440,
+54/57px at 390).
+
