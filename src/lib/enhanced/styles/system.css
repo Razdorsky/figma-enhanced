@@ -68,6 +68,9 @@ body[data-edition="figma-enhanced"] .current-page :is([data-role="photo-hero"], 
 /* ---- Photographs ---------------------------------------------------------------------------- */
 body[data-edition="figma-enhanced"] .current-page [data-part="media"] { position: relative; margin: 0; overflow: hidden; border-radius: var(--r-photo); background: var(--surface-warm); }
 body[data-edition="figma-enhanced"] .current-page [data-part="media"] img, body[data-edition="figma-enhanced"] .current-page [data-part="hero-image"] img { display: block; width: 100%; height: 100%; object-fit: cover; }
+/* A picture the designer cropped inside its frame (the mark in the Frequency Experience's callout): the frame's own
+   width and offsets, given on the figure as --crop-w, --crop-x and --crop-y, stand in place of the cover fit. */
+body[data-edition="figma-enhanced"] .current-page [data-part="media"][data-crop] img { position: absolute; left: var(--crop-x); top: var(--crop-y); width: var(--crop-w); height: auto; max-width: none; object-fit: fill; }
 body[data-edition="figma-enhanced"] .current-page [data-part="hero-image"] { margin: 0; }
 
 /* ---- Photo hero: full width, copy low on the left; Home centred (the frames) ------------------- */
@@ -263,6 +266,14 @@ body[data-edition="figma-enhanced"] .current-page [data-role="facts"] [data-part
 body[data-edition="figma-enhanced"] .current-page [data-role="facts"] [data-part="fact"] > p:not(:first-child) { font: 300 var(--t-highlight) / 1.2 var(--font-body); color: var(--heading); }
 body[data-edition="figma-enhanced"] .current-page [data-role="facts"] h3 { color: var(--accent); }
 body[data-edition="figma-enhanced"] .current-page [data-name="3 col info"] [data-part="fact"] > p:not(:first-child) { font: 400 var(--t-lede) / 1.4545 var(--font-body); color: var(--heading); }
+/* A fact that stands alone (the Harmonic Hearth's fourth step, once the change has taken the first three) is one line
+   across the page: its rule runs the full width, its name stands on the left and its words start at the middle. */
+body[data-edition="figma-enhanced"] .current-page [data-role="facts"] > [data-part="facts"] > [data-part="fact"]:only-child { grid-column: 1 / -1; }
+@media (min-width: 768px) {
+  body[data-edition="figma-enhanced"] .current-page [data-role="facts"] > [data-part="facts"] > [data-part="fact"]:only-child { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); align-items: baseline; }
+  body[data-edition="figma-enhanced"] .current-page [data-role="facts"] > [data-part="facts"] > [data-part="fact"]:only-child > :first-child { grid-column: 1 / span 6; margin-bottom: 0; }
+  body[data-edition="figma-enhanced"] .current-page [data-role="facts"] > [data-part="facts"] > [data-part="fact"]:only-child > p:not(:first-child) { grid-column: 7 / span 6; max-width: 34em; }
+}
 body[data-edition="figma-enhanced"] .current-page [data-role="amenities"] > [data-part="facts"] { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px 35px; margin: 0; }
 body[data-edition="figma-enhanced"] .current-page [data-role="amenities"] dt { margin-bottom: 10px; }
 body[data-edition="figma-enhanced"] .current-page [data-role="amenities"] dd { margin: 0; color: var(--ink); }

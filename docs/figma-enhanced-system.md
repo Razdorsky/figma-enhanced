@@ -116,7 +116,9 @@ When a hero photograph changes, check it again and set or remove the attribute.
   - The 3- and 4-card grids use square photographs with the title under them.
 - **Introduction and quote:** the designer's fan artwork beside the introduction and running off the quote's right edge.
 - **Callout:** the beige panel with a portrait.
+  - A picture the designer cropped inside its frame keeps that crop: `data-crop` on the figure, with the frame's width and offsets as `--crop-w`, `--crop-x` and `--crop-y`. The Frequency Experience's callout shows the mark whole this way; under the cover fit the file's wordmark came into the frame and was cut to "ESSY" (2026-11-11).
 - **Facts:** copper 4px rules over capital labels and light values. Amenities have no rules.
+  - A fact that stands alone is one line across the page: the rule runs the full width, the name stands on the left and the words start at the middle; on phones the name stands above the words (2026-11-11, the Harmonic Hearth's fourth step).
 - **Comparison, events, topics:** the frames' tables and rows.
 - **Map:**
   - Full width with the frame's crop of the aerial photograph.
