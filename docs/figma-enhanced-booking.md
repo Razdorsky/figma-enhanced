@@ -340,8 +340,12 @@ their horses in the shallow river (`55161e7692315fc7eac4`). Their copies for the
 
 The symbol at the foot of the footer is the PR edition's size, 64px (it was 56px, 48px on phones), and the two lines are
 set apart as in the Figma edition: "© The Vessyl 2026 • La Fortuna, Costa Rica" to the left and "Privacy • Terms &
-Conditions" to the right, level with the symbol in the middle (`styles/system.css`, `.footer-bottom` as a three-column
-grid). Below 768px, where the three do not fit in a row, the symbol and the two lines stand one under another in the
-middle, as before. The space from the last links to the row and from the row to the bottom stays equal (90/92px at 1440,
-54/57px at 390).
+Conditions" to the right, with the symbol in the middle (`styles/system.css`, `.footer-bottom` as a three-column grid).
+The lines' letters stand on the symbol's lower edge: the row aligns its items' last baselines, and the symbol, a box
+without text, takes its bottom edge as its baseline (checked in Chrome, WebKit and Firefox: the baseline and the
+symbol's edge coincide). Below 768px, where the three do not fit in a row, the symbol and the two lines stand one under
+another in the middle, as before.
+
+The space from the last links to the symbol and from the symbol to the bottom of the page is half what it was, and the
+two stay equal: 45/46px at 1440 (was 90/92), 38/39px at 1024, 27/28px at 390 (was 54/57).
 

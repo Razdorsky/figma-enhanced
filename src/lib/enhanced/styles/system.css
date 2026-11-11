@@ -393,12 +393,16 @@ body[data-edition="figma-enhanced"] .site-footer .footer-group > :last-child { m
 /* A heading that is a link reads like the others (on phones it took the links' size). */
 body[data-edition="figma-enhanced"] .footer-group h2 a { font: inherit; letter-spacing: inherit; }
 /* The footer's last row (owner, 2026-11-11): the symbol at the PR edition's size, 64px, in the middle, and the two lines
-   set apart as in the Figma edition, the copyright to the left and Privacy • Terms to the right, level with the symbol.
-   On phones, where the three do not fit in a row, they stand one under another in the middle. */
+   set apart as in the Figma edition, the copyright to the left and Privacy • Terms to the right, their letters standing
+   on the symbol's lower edge (the row's last baselines: a box without text takes its bottom as its baseline). On phones,
+   where the three do not fit in a row, they stand one under another in the middle. */
 body[data-edition="figma-enhanced"] .site-footer .footer-bottom {
-  display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; column-gap: 32px; row-gap: 14px;
-  min-height: 0; margin-top: calc(var(--foot-space) - 2px); /* less the air under the last link's line */
-  padding: 0 0 var(--foot-space); border-top: 0; text-align: left;
+  display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: last baseline; column-gap: 32px; row-gap: 14px;
+  /* Half the footer's space above and below the row (owner, 2026-11-11): from the last links to the symbol, less the air
+     under the last link's line, and from the symbol to the bottom of the page, less the 5px the letters' line (14px type
+     on 20px lines) reaches below the symbol's edge. */
+  min-height: 0; margin-top: calc((var(--foot-space) - 2px) / 2);
+  padding: 0 0 calc(var(--foot-space) / 2 - 5px); border-top: 0; text-align: left;
 }
 body[data-edition="figma-enhanced"] .site-footer .footer-bottom p { margin: 0; }
 body[data-edition="figma-enhanced"] .site-footer .footer-bottom > p:first-of-type { grid-column: 1; grid-row: 1; justify-self: start; }
@@ -406,7 +410,7 @@ body[data-edition="figma-enhanced"] .site-footer .footer-bottom > p:last-of-type
 body[data-edition="figma-enhanced"] .footer-symbol { display: block; grid-column: 2; grid-row: 1; width: 64px; color: inherit; }
 body[data-edition="figma-enhanced"] .footer-symbol svg { display: block; width: 100%; height: auto; fill: currentColor; }
 @media (max-width: 767px) {
-  body[data-edition="figma-enhanced"] .site-footer .footer-bottom { grid-template-columns: minmax(0, 1fr); justify-items: center; text-align: center; }
+  body[data-edition="figma-enhanced"] .site-footer .footer-bottom { grid-template-columns: minmax(0, 1fr); justify-items: center; padding-bottom: calc(var(--foot-space) / 2); text-align: center; }
   body[data-edition="figma-enhanced"] .site-footer .footer-bottom > .footer-symbol,
   body[data-edition="figma-enhanced"] .site-footer .footer-bottom > p:first-of-type,
   body[data-edition="figma-enhanced"] .site-footer .footer-bottom > p:last-of-type { grid-column: 1; grid-row: auto; justify-self: center; text-align: center; }
